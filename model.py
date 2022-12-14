@@ -11,6 +11,10 @@ class User(db.Model):
     username = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(50), nullable=False)
 
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+
 class Team(db.Model):
 
     __tablename__ = "teams"
@@ -35,7 +39,7 @@ def connect_to_db(app):
     db.app = app
     db.init_app(app)
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     from flask import Flask
     app = Flask(__name__)
     connect_to_db(app)

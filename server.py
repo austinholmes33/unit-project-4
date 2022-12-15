@@ -4,6 +4,8 @@ from model import db, User, Team, Project, connect_to_db
 
 app = Flask(__name__)
 
+app.secret_key = "this is a secret key"
+
 user_id = 1
 
 @app.route("/")
@@ -33,11 +35,13 @@ def add_project():
     
     if project_form.validate_on_submit():
         project_name = project_form.project_name
-        description = Project(project_name.description.data)
+        description = project_form.description.data
         completed = project_form.completed.data
         team_id = project_form.team_selection.data
+        print(description)
 
-        new_project = Project(project_name, completed, team_id, description=description)
+        new_project = Project(project_name, description, completed, team_id)
+        
         db.session.add(new_project)
         db.session.commit()
         return redirect(url_for("home"))
@@ -46,4 +50,5 @@ def add_project():
 
 
 if __name__ == "__main__":
+    connect_to_db(app)
     app.run(debug=True)

@@ -34,7 +34,7 @@ def add_project():
     project_form.update_teams(User.query.get(user_id).teams)
     
     if project_form.validate_on_submit():
-        project_name = project_form.project_name
+        project_name = project_form.project_name.data
         description = project_form.description.data
         completed = project_form.completed.data
         team_id = int(project_form.team_selection.data)

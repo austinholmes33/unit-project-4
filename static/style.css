@@ -57,5 +57,5 @@ body {
 
 .nav-item:hover {
     background-color: antiquewhite;
-    border: solid black 2px;
+    text-decoration: underline;
 }

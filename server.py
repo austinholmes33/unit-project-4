@@ -37,8 +37,9 @@ def add_project():
         project_name = project_form.project_name
         description = project_form.description.data
         completed = project_form.completed.data
-        team_id = project_form.team_selection.data
-        print(description)
+        team_id = int(project_form.team_selection.data)
+        print(project_name)
+        type(project_name)
 
         new_project = Project(project_name, description, completed, team_id)
         

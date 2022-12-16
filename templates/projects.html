@@ -12,7 +12,7 @@
                     <td>{{ project.description }}</td>
                     <td>{{ project.completed }}</td>
                     <td>{{ project.team.team_name }}</td>
-                    <td> <button type="button" class="btn btn-danger" href="/delete/{{ project.id }}">Delete</button> </td>
+                    <td> <a href="/delete/{{ project.id }}"><button type="button" class="btn btn-danger" >Delete</button> </a></td>
                 </tr>
             {% endfor %}
         </table>

@@ -60,16 +60,16 @@ def projects():
     projects = user.get_projects()
     return render_template("projects.html", title = "Projects", page = "projects", projects = projects)
 
-# @app.route("/delete/<project_id>")
-# def delete():
-#     project = User.query.get(user_id)
+@app.route("/delete/<project_id>")
+def delete_project(project_id):
+    project = Project.query.get(project_id)
 
-#     try:
-#         db.session.delete(project)
-#         db.session.commit()
-#         return redirect("/projects")
-#     except:
-#         return "Could not delete"
+    try:
+        db.session.delete(project)
+        db.session.commit()
+        return redirect("/projects")
+    except:
+        return "Could not delete"
 
 if __name__ == "__main__":
     connect_to_db(app)

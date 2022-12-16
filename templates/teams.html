@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>
     <table class="table table-bordered">
-        <th>Teams</th>
+        <th class="table-head">Teams</th>
             {% for team in teams %}
-            <tr>
+            <tr class="table-row">
                 <td>{{ team.team_name }}</td>
             </tr>
             {% endfor %}

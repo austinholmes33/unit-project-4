@@ -17,6 +17,15 @@ class User(db.Model):
         self.username = username
         self.password = password
 
+    def get_projects(self):
+        projects = []
+
+        for team in self.teams:
+            for project in team.projects:
+                projects.append(project)
+
+        return projects
+
 class Team(db.Model):
 
     __tablename__ = "teams"
@@ -46,6 +55,8 @@ class Project(db.Model):
         self.description = description
         self.completed = completed
         self.team_id = team_id
+
+
 
 def connect_to_db(app):
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["POSTGRES_URI"]

@@ -57,7 +57,7 @@ def teams():
 @app.route("/projects")
 def projects():
     user = User.query.get(user_id)
-    projects = user.get_all_projects()
+    projects = user.get_projects()
     return render_template("projects.html", title = "Projects", page = "projects", projects = projects)
 
 

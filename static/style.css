@@ -50,8 +50,12 @@ body {
 .nav {
     display: flex;
     justify-content: center;
+    width: 100%;
+    background-color: aliceblue;
+
 }
 
-.nav-item {
-    background-color: aliceblue;
+.nav-item:hover {
+    background-color: antiquewhite;
+    border: solid black 2px;
 }
